@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
+        DatabaseHandler dbHandler = new DatabaseHandler(this, null, null, 1);
 
         //Get the TextViews and Button from the layout
         TextView tvName = findViewById(R.id.tvName);

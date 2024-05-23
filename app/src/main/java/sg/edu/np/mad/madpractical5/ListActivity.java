@@ -1,8 +1,6 @@
 package sg.edu.np.mad.madpractical5;
 
-
 import android.os.Bundle;
-
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,9 +10,6 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
-import java.util.Random;
 
 public class ListActivity extends AppCompatActivity {
 
@@ -28,14 +23,14 @@ public class ListActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        MyDBHandler dbHandler = new MyDBHandler(this,null,null,1);
+
+        DatabaseHandler dbHandler = new DatabaseHandler(this, null, null, 1);
+
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        UserAdapter userAdapter =  new UserAdapter((ArrayList<User>) dbHandler.getUsers(), this);
+        UserAdapter userAdapter =  new UserAdapter(dbHandler.getUsers(), this);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(userAdapter);
-
-
     }
 }
